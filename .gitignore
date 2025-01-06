@@ -6,7 +6,9 @@ imgui.ini
 *.swo
 *.exe
 *.dSYM
+*.aps
 mac_prog
 3dco
 build.bat
+build-dir/
 

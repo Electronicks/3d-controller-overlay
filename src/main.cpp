@@ -4,14 +4,33 @@
 #elif __APPLE__
 #elif _WIN32
 #define SDL_MAIN_HANDLED
+#include <windows.h>
 #else //some other operating system
 #endif
 
-#include "settings_window.h"
+
+#include <cstdio>
+#include <SDL2/SDL.h>
+#include <GLFW/glfw3.h>
+
+import controller_window;
+import settings_window;
+import std;
 
 bool gQuit = false;
 
 void InitializeProgram(){
+
+#if defined(WIN32) && defined(DEBUG)
+	AllocConsole();
+	SetConsoleTitle(L"3D Controller Overlay");
+	// https://stackoverflow.com/a/15547699/1130520
+	freopen_s((FILE**)stdin, "conin$", "r", stdin);
+	freopen_s((FILE**)stdout, "conout$", "w", stdout);
+	freopen_s((FILE**)stderr, "conout$", "w", stderr);
+	//SetConsoleCtrlHandler(&ConsoleCtrlHandler, TRUE);
+#endif
+
 	if(SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER) < 0){
         printf("Error: %s\n", SDL_GetError());
         exit(1);
@@ -59,8 +78,12 @@ void Cleanup(){
 
 	glfwTerminate();
 }
-
-int main(){
+#ifdef _WIN32
+int __stdcall wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmdLine, int cmdShow)
+#else
+int main(int argc, char* argv[])
+#endif
+{
 	InitializeProgram();
 	
 	MainLoop();
