@@ -1,11 +1,8 @@
 module;
-//#include <iostream>
-//#include <vector>
+
 #include <sys/stat.h>
-//#include <fstream>
-//#include <string>
-//#include <filesystem>
 #include <SDL2/SDL.h>
+
 export module settings;
 
 import std;

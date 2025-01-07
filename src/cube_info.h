@@ -1,8 +1,6 @@
-#ifndef CUBE_INFO_H
-#define CUBE_INFO_H
+#pragma once
 
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 glm::vec3 cubePositions[] = {
@@ -162,5 +160,3 @@ float cube_tex_coords[] {
 	0.0f, 0.0f,
 	0.0f, 1.0f
 };
-
-#endif

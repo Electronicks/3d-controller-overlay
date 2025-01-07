@@ -1,8 +1,7 @@
 module;
-#include <glad/glad.h>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "glad/glad.h"
+#include "glm/glm.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 #include <SDL2/SDL.h>
 
@@ -57,12 +56,12 @@ export GLuint CompileShader(GLuint type, const char* shaderSource)
     return shaderObject;
 }
 
-export GLuint CreateShaderProgram(const char* vertexShaderSource, const char* fragmentShaderSource)
+export GLuint CreateShaderProgram(std::string_view vertexShaderSource, std::string_view fragmentShaderSource)
 {
     GLuint programObject = glCreateProgram();
 
-    GLuint vertexShader = CompileShader(GL_VERTEX_SHADER, vertexShaderSource);
-    GLuint fragmentShader = CompileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
+    GLuint vertexShader = CompileShader(GL_VERTEX_SHADER, vertexShaderSource.data());
+    GLuint fragmentShader = CompileShader(GL_FRAGMENT_SHADER, fragmentShaderSource.data());
 
     glAttachShader(programObject, vertexShader);
     glAttachShader(programObject, fragmentShader);

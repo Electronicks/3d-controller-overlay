@@ -58,7 +58,7 @@ set(GLFW_LIBRARY_TYPE STATIC)
 CPMAddPackage (
     NAME glfw
     GITHUB_REPOSITORY glfw/glfw
-    GIT_TAG 3.4
+    GIT_TAG 3.3
 )
 add_custom_command(
     TARGET ${BINARY_NAME}
@@ -107,7 +107,6 @@ target_sources (${BINARY_NAME}
     include/stb_image.h
     include/KHR/khrplatform.h
     src/cube_info.h
-    src/shader_source.h
     src/shaders.h
     src/strings.h
     3dco.rc

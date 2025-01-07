@@ -1,17 +1,12 @@
 module;
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <SDL2/SDL.h>
-#include <glad/glad.h>
-
+#include "glad/glad.h"
 #include "cube_info.h"
 #include "shaders.h"
 
-#include "stb_image.h"
-
+#include <SDL2/SDL.h>
 #include <GLFW/glfw3.h>
+
 export module controller_window;
 import std;
 import shader;
@@ -338,9 +333,9 @@ void make_grid(controller_window& w)
 	w.grid_length = (GLuint)indices.size() * 4;
 }
 
-void createShader(GLuint& shader_id, const char* vs_source, const char* fs_source)
+void createShader(GLuint& shader_id, std::string_view vs_source, std::string_view fs_source)
 {
-	shader_id = CreateShaderProgram(vs_source, fs_source);
+	shader_id = CreateShaderProgram(vs_source.data(), fs_source.data());
 }
 
 void lightingSpecification(controller_window& w)
@@ -418,7 +413,7 @@ export void createControllerWindow(std::string title, std::string model_path, GL
 	w.glfw_window = glfwCreateWindow(defaultWidth, defaultHeight, title.c_str(), NULL, NULL);
 	if (w.glfw_window == NULL)
 	{
-		std::cout << "Failed to create controller indow" << std::endl;
+		std::cout << "Failed to create controller window" << std::endl;
 		glfwTerminate();
 	}
 	glfwMakeContextCurrent(w.glfw_window);
@@ -456,14 +451,14 @@ export void createControllerWindow(std::string title, std::string model_path, GL
 
 	//* shaders from header file
 	createShader(w.shader,
-		vertex_shader_code.c_str(),
-		fragment_shader_code.c_str());
+		vertex_shader_code,
+		fragment_shader_code);
 	createShader(w.grid_shader,
-		grid_vertex_shader_code.c_str(),
-		grid_fragment_shader_code.c_str());
+		grid_vertex_shader_code,
+		grid_fragment_shader_code);
 	createShader(w.light_source_shader,
-		light_source_vertex_shader_code.c_str(),
-		light_source_fragment_shader_code.c_str());
+		light_source_vertex_shader_code,
+		light_source_fragment_shader_code);
 //*/
 /* shaders from text files
 createShader(w.shader,

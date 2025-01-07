@@ -1,6 +1,8 @@
-#include<string>
+#pragma once
 
-std::string grid_vertex_shader_code = 
+#include<string_view>
+
+static constexpr std::string_view grid_vertex_shader_code = 
 "#version 410 core\n"
 "\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -14,7 +16,7 @@ std::string grid_vertex_shader_code =
 "    gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
 "}\n";
 
-std::string grid_fragment_shader_code =
+static constexpr std::string_view grid_fragment_shader_code =
 "#version 410 core\n"
 "\n"
 "out vec4 FragColor;\n"
@@ -24,7 +26,7 @@ std::string grid_fragment_shader_code =
 "    FragColor = vec4(0.5, 0.5, 0.5, 1.0);\n"
 "}\n";
 
-std::string light_source_vertex_shader_code =
+static constexpr std::string_view light_source_vertex_shader_code =
 "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "\n"
@@ -37,7 +39,7 @@ std::string light_source_vertex_shader_code =
 "    gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
 "} \n";
 
-std::string light_source_fragment_shader_code =
+static constexpr std::string_view light_source_fragment_shader_code =
 "#version 330 core\n"
 "out vec4 FragColor;\n"
 "\n"
@@ -48,7 +50,7 @@ std::string light_source_fragment_shader_code =
 "    FragColor = vec4(lightColor, 1.0); \n"
 "}\n";
 
-std::string vertex_shader_code = 
+static constexpr std::string_view vertex_shader_code = 
 "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "layout (location = 1) in vec3 aNormal;\n"
@@ -75,7 +77,7 @@ std::string vertex_shader_code =
 "    TexCoords = aTexCoords;\n"
 "} \n";
 
-std::string fragment_shader_code = 
+static constexpr std::string_view fragment_shader_code = 
 "#version 330 core\n"
 "out vec4 FragColor;\n"
 

@@ -1,9 +1,8 @@
-#ifndef STRINGS_H
-#define STRINGS_H
+#pragma once
 
-#include <string>
+#include <string_view>
 
-std::string mesh_names[32] = {
+static constexpr std::string_view mesh_names[32] = {
     "top shell",
     "bottom shell",
     "extra",
@@ -38,11 +37,156 @@ std::string mesh_names[32] = {
     "touch point 2"
 };
 
-std::string shell_names[3]= {
+static constexpr std::string_view shell_names[3]= {
     "top shell",
     "bottom shell",
     "extra",
 };
 
-#endif
+static constexpr std::string_view mesh_filenames[32] = {
+	"top_shell.obj",
+	"bottom_shell.obj",
+	"extra.obj",
+	"left_trigger.obj",
+	"right_trigger.obj",
+	"left_stick.obj",
+	"right_stick.obj",
+	"left_ring.obj",
+	"right_ring.obj",
+	"a_button.obj",
+	"b_button.obj",
+	"x_button.obj",
+	"y_button.obj",
+	"back_button.obj",
+	"guide_button.obj",
+	"start_button.obj",
+	"left_cap.obj",
+	"right_cap.obj",
+	"left_bumper.obj",
+	"right_bumper.obj",
+	"dpad_up.obj",
+	"dpad_down.obj",
+	"dpad_left.obj",
+	"dpad_right.obj",
+	"misc.obj",
+	"paddle1.obj",
+	"paddle2.obj",
+	"paddle3.obj",
+	"paddle4.obj",
+	"touchpad.obj",
+	"touch_point1.obj",
+	"touch_point2.obj"
+};
 
+static constexpr std::string_view invalid_characters = "\\/:*?\"<>|";
+
+static constexpr std::string_view mapping_names[27] = {
+	"a",
+	"b",
+	"x",
+	"y",
+	"back",
+	"guide",
+	"start",
+	"leftstick",
+	"rightstick",
+	"leftshoulder",
+	"rightshoulder",
+	"dpup",
+	"dpdown",
+	"dpleft",
+	"dpright",
+	"touchpad",
+	"misc",
+	"paddle1",
+	"paddle2",
+	"paddle3",
+	"paddle4",
+	"leftx",
+	"lefty",
+	"rightx",
+	"righty",
+	"lefttrigger",
+	"righttrigger"
+};
+
+static constexpr std::string_view input_names[27] = {
+	"a button",
+	"b button",
+	"x button",
+	"y button",
+	"back button",
+	"guide button",
+	"start button",
+	"left stick click",
+	"right stick click",
+	"left bumper",
+	"right bumper",
+	"dpad up",
+	"dpad down",
+	"dpad left",
+	"dpad right",
+	"touchpad click",
+	"misc button",
+	"paddle 1",
+	"paddle 2",
+	"paddle 3",
+	"paddle 4",
+	"left stick x-axis",
+	"left stick y-axis",
+	"right stick x-axis",
+	"right stick y-axis",
+	"left trigger",
+	"right trigger"
+};
+
+static constexpr std::string_view binding_names[48] = {
+	"unbound",
+	"b0",
+	"b1",
+	"b2",
+	"b3",
+	"b4",
+	"b5",
+	"b6",
+	"b7",
+	"b8",
+	"b9",
+	"b10",
+	"b11",
+	"b12",
+	"b13",
+	"b14",
+	"b15",
+	"b16",
+	"b17",
+	"b18",
+	"b19",
+	"b20",
+	"h0.0",
+	"h0.1",
+	"h0.2",
+	"h0.3",
+	"h0.4",
+	"h0.5",
+	"h0.6",
+	"h0.7",
+	"h0.8",
+	"h0.9",
+	"h1.0",
+	"h1.1",
+	"h1.2",
+	"h1.3",
+	"h1.4",
+	"h1.5",
+	"h1.6",
+	"h1.7",
+	"h1.8",
+	"h1.9",
+	"a0",
+	"a1",
+	"a2",
+	"a3",
+	"a4",
+	"a5",
+};
