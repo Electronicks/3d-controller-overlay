@@ -72,6 +72,9 @@ install (
     RUNTIME DESTINATION ${PACKAGE_DIR}
 )
 
+# OpenGL
+find_package(OpenGL REQUIRED)
+
 # Dear ImGUI
 CPMAddPackage (
     NAME imgui
@@ -123,7 +126,9 @@ target_sources(${BINARY_NAME}
 target_include_directories(${BINARY_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${imgui_SOURCE_DIR}
-    ${imgui_SOURCE_DIR}/backends)
+    ${imgui_SOURCE_DIR}/backends
+    ${OPENGL_INCLUDE_DIRS}
+)
 target_compile_definitions (
     ${BINARY_NAME} PRIVATE
     -DAPPLICATION_NAME="${PROJECT_NAME}"
@@ -147,6 +152,7 @@ target_link_libraries (
     SDL2
     glfw
     imgui
+    OpenGL::GL
 )
 set_target_properties(${BINARY_NAME} PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "$(ProjectDir)/$(Configuration)/"
